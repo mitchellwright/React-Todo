@@ -1,55 +1,49 @@
-import React from 'react';
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
+import React from "react";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 class App extends React.Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
       todos: [
         {
-          task: 'Organize Garage',
+          task: "Organize Living Room",
           id: 1,
-          completed: false
+          completed: false,
         },
         {
-          task: 'Clean Room',
+          task: "Clean Room",
           id: 2,
-          completed: false
+          completed: false,
         },
       ],
     };
   }
 
-  setCompleted = todoId => {
-    const todo = this.state.todos.find( todo => todo.id === parseInt(todoId));
+  setCompleted = (todoId) => {
+    const todo = this.state.todos.find((todo) => todo.id === parseInt(todoId));
     todo.completed = !todo.completed;
     this.setState({ ...this.state.todos, todo });
-  }
+  };
 
-  addItem = newTodo => {
+  addItem = (newTodo) => {
     console.log(newTodo);
-    this.setState({ todos: [...this.state.todos, newTodo]});
-  }
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  };
 
   clearCompleted = () => {
-    this.setState({ todos: this.state.todos.filter( todo =>
-      !todo.completed
-    )})
-  }
+    this.setState({
+      todos: this.state.todos.filter((todo) => !todo.completed),
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList
-          todos={this.state.todos}
-          setCompleted={this.setCompleted}
-        />
-        <TodoForm
-          addItem={this.addItem}
-          clearCompleted={this.clearCompleted}
-        />
+        <TodoList todos={this.state.todos} setCompleted={this.setCompleted} />
+        <TodoForm addItem={this.addItem} clearCompleted={this.clearCompleted} />
       </div>
     );
   }
