@@ -13,7 +13,7 @@ class App extends React.Component {
           completed: false
         },
         {
-          task: 'Clean Room',
+          task: 'Go to store',
           id: 2,
           completed: false
         },
