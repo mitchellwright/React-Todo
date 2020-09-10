@@ -28,11 +28,15 @@ class TodoForm extends React.Component {
                     name="input"
                     value={this.state.item}
                 ></input>
+                <br />
+                <br />
                 <button
                     type="submit"
                 >
                     Add Item
                 </button>
+                <br />
+                <br />
                 <button type="button" onClick={this.props.clearCompleted}>
                     Clear Completed Items
                 </button>
